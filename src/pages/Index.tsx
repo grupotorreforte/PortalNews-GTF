@@ -14,7 +14,7 @@ function PortalContent() {
   const gridNews = mockNews.slice(2, 8);
 
   return (
-    <div className="max-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <StickyHeader />
 
@@ -44,7 +44,7 @@ function PortalContent() {
       <section className="container py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <SectionHeader title="Tema dois" editorial="nacional" />
+            <SectionHeader title="Tema Um" editorial="nacional" />
             <div className="space-y-4">
                       {sideNews.slice(3, 6).map((news) => (
                         <NewsCard 

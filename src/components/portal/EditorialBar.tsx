@@ -17,40 +17,25 @@ export function EditorialBar() {
   const logoSrc = stationLogos[currentStation.id];
 
   return (
-    <div className="editorial-bar sticky top-0 z-50 shadow-sm">
-      <div
-        className="
-          container 
-          flex items-center 
-          justify-between 
-          h-[70px] 
-          w-full
-          relative
-        "
-        style={{
-        backgroundColor: currentStation.color   // COR DA EMISSORA
-      }}
-      >
-        {/* ESQUERDA - Ícone + texto MENU */}
+    <div className="editorial-bar shadow-sm"
+         style={{ backgroundColor: currentStation.color }}>
+      
+      <div className="container flex items-center justify-between h-[70px] w-full relative">
+
         <div className="flex items-center gap-0 w-[90px]">
-          <MainDrawer/>
+          <MainDrawer />
           <span className="text-primary-foreground font-semibold text-sm">MENU</span>
         </div>
 
-        {/* CENTRO FIXO – Logo da emissora */}
         <div className="absolute left-1/2 -translate-x-1/2">
-          <img 
-            src={logoSrc} 
-            alt={currentStation.name} 
-            className="h-10 w-auto"
-          />
+          <img src={logoSrc} alt={currentStation.name} className="h-10 w-auto" />
         </div>
 
-        {/* DIREITA – Search */}
         <div className="w-[90px] flex justify-end">
           <SearchBox />
         </div>
       </div>
+
     </div>
   );
 }

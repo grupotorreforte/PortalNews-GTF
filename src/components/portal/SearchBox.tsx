@@ -45,8 +45,8 @@ export function SearchBox() {
           onClick={() => setOpen(true)}
           className="
             flex items-center gap-2 px-4 py-2 rounded-md 
-            bg-[hsl(var(--primary-dark))] text-white font-semibold
-            hover:bg-[hsl(var(--primary))] transition-all
+            bg-[hsl(var(--transparent))] text-white font-semibold
+            hover:bg-[hsl(var(--transparent))] transition-all
           "
         >
           <Search size={18} className="text-white" />

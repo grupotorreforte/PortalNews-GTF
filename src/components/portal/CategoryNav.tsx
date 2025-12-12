@@ -30,7 +30,7 @@ export function CategoryNav() {
       <div className="container">
         <div className="flex items-center justify-center gap-4 py-3 overflow-x-auto no-scrollbar">
           {editorials.map((editorial) => (
-            <button
+            <button border-b border-border
               key={editorial.id}
               onClick={() => setEditorial(editorial.id)}
               className={cn(
