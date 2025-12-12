@@ -80,14 +80,11 @@ export default function ArtigoPage() {
             substituído pelo conteúdo real retornado da API com corpo completo
             da notícia.
           </p>
-          <p>
-            O objetivo agora é testar o layout e o carregamento da página,
-            garantindo compatibilidade com o estilo geral do portal.
-          </p>
+          
         </div>
 
         {/* COMENTÁRIOS */}
-        {/* <div className="mt-16 border-t pt-8">
+        <div className="mt-16 border-t pt-8">
           <h2 className="text-2xl font-bold mb-4">Comentários</h2>
           <p className="text-muted-foreground mb-4">
             Para comentar, faça login na plataforma.
@@ -95,7 +92,7 @@ export default function ArtigoPage() {
           <button className="px-6 py-3 bg-foreground text-background rounded-md font-semibold">
             Entrar
           </button>
-        </div> */}
+        </div>
       </main>
 
       <Footer />

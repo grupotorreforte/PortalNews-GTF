@@ -18,7 +18,7 @@ export function HeroSection({ mainNews, sideNews }: HeroSectionProps) {
               <span className="inline-block w-1.5 h-8 bg-primary rounded mr-3 align-middle" />
               {mainNews.titulo}
             </h1>
-            <ul className="space-y-2 text-sm text-foreground">
+            <ul className="space-y-2 text-sm font-[550] text-foreground">
               {sideNews.slice(0, 3).map((news, index) => (
                 <li key={index} className="flex items-start gap-2 hover:text-primary cursor-pointer transition-colors">
                   <span className="inline-block w-1.5 h-1.5 bg-primary rounded mt-2 flex-shrink-0" />

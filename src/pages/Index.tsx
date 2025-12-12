@@ -10,6 +10,7 @@ import { SectionHeader } from '@/components/portal/SectionHeader';
 import { Footer } from '@/components/portal/Footer';
 import { mockNews, mockNegociosNews } from '@/data/mockNews';
 import { StickyHeader } from '@/components/portal/StickyHeader';
+import { NewsCard } from '@/components/portal/NewsCard';
 
 function PortalContent() {
   const mainNews = mockNews[0];
@@ -17,7 +18,7 @@ function PortalContent() {
   const gridNews = mockNews.slice(2, 8);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="max-h-screen bg-background">
       {/* Header */}
       <StickyHeader />
 
@@ -33,7 +34,7 @@ function PortalContent() {
 
       {/* Secondary Grid */}
       <section className="container pb-8">
-        <NewsGrid news={mockNews.slice(8, 14)} columns={3} />
+        <NewsGrid news={mockNews.slice(8, 0)} columns={3} />
       </section>
 
       {/* Negócios Section */}
@@ -48,15 +49,42 @@ function PortalContent() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <SectionHeader title="Tema dois" editorial="nacional" />
-            <NewsGrid news={[mockNews[14]]} columns={1} />
+            <div className="space-y-4">
+                      {sideNews.slice(3, 6).map((news) => (
+                        <NewsCard 
+                          key={news.id} 
+                          news={news} 
+                          variant="horizontal"
+                          showSubtitle={false}
+                        />
+                      ))}
+                    </div>
           </div>
           <div>
             <SectionHeader title="Tema dois" editorial="cultura" />
-            <NewsGrid news={[mockNews[15]]} columns={1} />
+            <div className="space-y-4">
+                      {sideNews.slice(1, 4).map((news) => (
+                        <NewsCard 
+                          key={news.id} 
+                          news={news} 
+                          variant="horizontal"
+                          showSubtitle={false}
+                        />
+                      ))}
+                    </div>
           </div>
           <div>
             <SectionHeader title="Tema três" editorial="esportes" />
-            <NewsGrid news={[mockNews[10]]} columns={1} />
+            <div className="space-y-4">
+                      {sideNews.slice(2, 5).map((news) => (
+                        <NewsCard 
+                          key={news.id} 
+                          news={news} 
+                          variant="horizontal"
+                          showSubtitle={false}
+                        />
+                      ))}
+                    </div>
           </div>
         </div>
       </section>

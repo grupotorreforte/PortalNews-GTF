@@ -4,12 +4,12 @@ interface AdBannerProps {
   text?: string;
 }
 
-export function AdBanner({ text = "CLIQUE E ANUNCIE AQUI" }: AdBannerProps) {
+export function AdBanner({ text = "ANUNCIE AQUI" }: AdBannerProps) {
   return (
     <div className="
         ad-banner
         w-full 
-        max-w-[1366px] 
+        max-w-[970px] 
         h-[177px] 
         mx-auto 
         my-6 

@@ -2,7 +2,7 @@ import React from 'react';
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background py-12 mt-12">
+    <footer className="bg-foreground flex items-center text-background py-12 mt-12">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
@@ -40,18 +40,18 @@ export function Footer() {
           </div>
 
           {/* Legal */}
-          <div>
-            <h4 className="font-bold mb-4">Legal</h4>
-            <ul className="space-y-2 text-sm text-background/70">
-              <li><a href="#" className="hover:text-background transition-colors">Termos de uso</a></li>
-              <li><a href="#" className="hover:text-background transition-colors">Política de privacidade</a></li>
-              <li><a href="#" className="hover:text-background transition-colors">Cookies</a></li>
-            </ul>
-          </div>
+          
         </div>
 
-        <div className="border-t border-background/20 mt-8 pt-8 text-center text-sm text-background/50">
-          <p>© {new Date().getFullYear()} GTF News. Todos os direitos reservados.</p>
+        <div className="items-center border-t border-background/20 mt-8 pt-8 text-center text-sm text-background/50">
+          <p>Copyright © {new Date().getFullYear()} GTF Inc. Todos os direitos reservados.</p>
+          <div className="flex items-center justify-center mt-4">
+            <ul className="flex items-center gap-5 text-sm text-background/70">
+              <li><a href="#" className="hover:text-background transition-colors">Termos de uso</a></li>
+              <li><a href="#" className="hover:text-background transition-colors">Política de privacidade</a></li>
+              <li><a href="#" className="hover:text-background transition-colors">Avisos Legais</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
