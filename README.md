@@ -473,8 +473,8 @@ const { data: news } = useQuery(`/api/news?editorial=${editorial}`);
 
 ### 1. Backend Setup
 - [ ] Criar endpoints REST
-- [ ] Estrutura de BD (PostgreSQL/MongoDB)
-- [ ] Autenticação (se necessário)
+- [ ] Estrutura de BD (Mysql)
+- [ ] Autenticação
 
 ### 2. Frontend Integration
 - [ ] Instalar React Query / SWR
@@ -497,64 +497,6 @@ const { data: news } = useQuery(`/api/news?editorial=${editorial}`);
 ---
 
 ## implementacao de tela ADMIN e REDATORES PARA PUBLICAR NOTICIAS
-```
-src/admin/config/permissions.ts
-export const permissions = {
-  [UserRole.ADMIN]: [
-    'noticias.create',
-    'noticias.edit.all',
-    'noticias.delete',
-    'noticias.publish',
-    'usuarios.manage',
-    'editorias.manage',
-    'configuracoes.manage'
-  ],
-  
-  [UserRole.EDITOR]: [
-    'noticias.create',
-    'noticias.edit.own',
-    'noticias.edit.editorial', // Só da sua editoria
-    'noticias.publish',
-    'noticias.review'
-  ],
-  
-  [UserRole.REVISOR]: [
-    'noticias.view',
-    'noticias.review',
-    'noticias.suggest'
-  ],
-  
-  [UserRole.REDATOR]: [
-    'noticias.create',
-    'noticias.edit.own',
-    'noticias.submit_review'
-  ]
-};
-
-export function hasPermission(user: User, permission: string): boolean {
-  return permissions[user.role]?.includes(permission) || false;
-}
-```
---- 
-
-### Fluxo de Aprovação
-```
-┌─────────────┐
-│  Redator    │ Cria → RASCUNHO
-└──────┬──────┘
-       │ Envia para Revisão
-       ↓
-┌─────────────┐
-│  Revisor    │ Revisa → REVISAO
-└──────┬──────┘
-       │ Aprova/Rejeita
-       ↓
-┌─────────────┐
-│  Editor     │ Publica → PUBLICADO
-└─────────────┘
-```
-
----
 
 ## Estrutura de Pastas Completa
 ```
@@ -603,84 +545,6 @@ src/
     ├── components/ui/
     └── lib/
 ```
-
----
-
-## API Endpoints
-
-### Autenticação
-```
-POST   /api/admin/login
-POST   /api/admin/logout
-POST   /api/admin/refresh-token
-POST   /api/admin/recuperar-senha
-POST   /api/admin/resetar-senha
-GET    /api/admin/me
-
-```
-
-### Notícias
-```
-GET    /api/admin/noticias                    # Lista com filtros
-GET    /api/admin/noticias/:id                # Detalhes
-POST   /api/admin/noticias                    # Criar
-PUT    /api/admin/noticias/:id                # Editar
-DELETE /api/admin/noticias/:id                # Deletar
-PATCH  /api/admin/noticias/:id/status         # Alterar status
-PATCH  /api/admin/noticias/:id/destaque       # Toggle destaque
-POST   /api/admin/noticias/:id/revisar        # Enviar revisão
-```
-
-### Usuários
-```
-GET    /api/admin/usuarios
-GET    /api/admin/usuarios/:id
-POST   /api/admin/usuarios
-PUT    /api/admin/usuarios/:id
-DELETE /api/admin/usuarios/:id
-PATCH  /api/admin/usuarios/:id/status
-```
-
-### Upload
-```
-POST   /api/admin/upload/imagem
-POST   /api/admin/upload/documento
-```
-
-### Dashboard
-```
-GET    /api/admin/stats                       # Estatísticas gerais
-GET    /api/admin/noticias/recentes           # Últimas notícias
-GET    /api/admin/noticias/pendentes          # Aguardando revisão
-```
-
-### Fase 1 - Auth & Base
-
-- Sistema de autenticação JWT
-- Protected routes
-- Layout admin base
-- Dashboard simples
-
-### Fase 2 - CRUD Notícias
-
-- Listagem com filtros
-- Formulário criar/editar
-- Editor rico (TipTap)
-- Upload de imagens
-
-### Fase 3 - Workflow
-
-- Sistema de status
-- Fluxo de aprovação
-- Notificações
-- Histórico de alterações
-
-### Fase 4 - Gestão
-
-- Gerenciamento de usuários
-- Permissões granulares
-- Logs de atividades
-- Relatórios
 
 **Documentação criada em**: 15/12/2024
 **Versão**: 4.0
